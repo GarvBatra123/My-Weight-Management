@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='home_formatting.css') }}">
+{% extends "template.html" %}
+
+<!-- TITLE -->
+{% block title %}
+Welcome to "Your Personal Weight Assistant"
+{% endblock %}
+
+<!-- HEADER -->
+{% block HOME_PAGE %}
+<li id="left"><a id="active" href="/">Home</a></li>
+{% endblock %}
+
+<!-- BODY -->
+{% block content_space %}
+<h1 class="container" id="top_image">WELCOME TO "YOUR PERSONAL WEIGHT ASSISTANT"!</h1>
+
+<div class="container" id="light_yellow">
+    <div class="image" id="align-right">
+        <img src="static/images/temporary_home_icon.jpg" alt="temp img">
+    </div>
+    <div class="text" id="align-left">
+        <p>
+            Welcome to "YOUR PERSONAL WEIGHT ASSISTANT"! This app is specifically designed to 
+            help you manage and reduce your weight! It will calculate how much weight you are 
+            supposed to lose within a certain number of days. Click below to read more...
+        </p>
+        <br>
+        <a href="{{url_for('obtainGraphData')}}">Read more</a>
+    </div>
+</div>
+
+<div class="container" id="light_green">
+    <div class="image" id="align-left">
+        <img src="static/images/temporary_home_icon.jpg" alt="temp img">
+    </div>
+    <div class="text" id="align-right">
+        <p>
+            Create an account with us to experience full features!
+        </p>
+        <br>
+        <a href="{{url_for('loginPage1')}}">Create Account</a>
+    </div> 
+</div>
+
+<div class="container" id="light_yellow">
+    <div class="image" id="align-right">
+        <img src="static/images/temporary_home_icon.jpg" alt="temp img">
+    </div>
+    <div class="text" id="align-left">
+        <p>Physical fitness is not the sole basis of being healthy; being healthy means being mentally and emotionally fit. Being
+        healthy should be part of your overall lifestyle. Living a healthy lifestyle can help prevent chronic diseases and
+        long-term illnesses. Feeling good about yourself and taking care of your health are important for your self-esteem and
+        self-image. Maintain a healthy lifestyle by doing what is right for your body. To read more, click on the link below</p>
+        <br>
+        <a href="https://www.foundationforpn.org/living-well/lifestyle/">Read more</a>
+    </div>
+</div>  
+{% endblock %}

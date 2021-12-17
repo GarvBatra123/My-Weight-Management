@@ -1,0 +1,132 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='profilePage_formatting.css') }}">
+{% extends "template.html" %}
+
+<!-- TITLE -->
+{% block title %}
+User Profile
+{% endblock %}
+
+<!-- HEADER -->
+{% block PROFILE_PAGE %}
+<li id="right"><a id="active" href="{{url_for('profile_Page')}}" class="fa fa-id-card"></a></li>
+{% endblock %}
+
+<!-- BODY CONTENT -->
+{% block content_space%}
+<div id="Userprofile" class="userIcon">
+    <h1>USER PROFILE</h1>
+    <h1 id="avatar" class="fas fa-user avatar"></h1>
+    <h2>{{Fullname}}</h2> <!-- output the full name of the user -->
+</div>
+<br>
+<br>
+<br>
+{% if os.path.exists('UserWeightData.json') %}
+<div>
+    <h1 style="color:white; text-align:center" id="header">View your latest weight details below from {{datelist[0]}} to {{datelist[4]}}</h1>
+</div>
+<div id="container"></div>
+
+<!-- JS CODE BELOW REFERENCED FROM "anychart.com" -->
+<!-- https://www.anychart.com/ -->
+<script
+    src="https://cdn.anychart.com/releases/8.10.0/js/anychart-base.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
+<!-- reference to external JS script file to render the graphs -->
+<script
+    src="https://cdn.anychart.com/releases/8.10.0/js/anychart-exports.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
+<!-- reference to external JS script file to render the graphs -->
+<script
+    src="https://cdn.anychart.com/releases/8.10.0/js/anychart-ui.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
+<!-- reference to external JS script file to render the graphs -->
+<script type="text/javascript">
+    anychart.onDocumentReady(function () { //JS Code to render graph on the webpage
+        // create data
+        var currentWeightData = [ //create a dataset for the goal weight to be charted as a bar chart
+            ['{{ datelist[0] }}', '{{ Weight_values[0] }}'],
+            ['{{ datelist[1] }}', '{{ Weight_values[1] }}'],
+            ['{{ datelist[2] }}', '{{ Weight_values[2] }}'],
+            ['{{ datelist[3] }}', '{{ Weight_values[3] }}'],
+            ['{{ datelist[4] }}', '{{ Weight_values[4] }}'],
+        ];
+        var goalWeightData = [ //create a dataset for the goal weight to be charted as a line graph
+            ['{{ datelist[0] }}', '{{ goal }}'],
+            ['{{ datelist[1] }}', '{{ goal }}'],
+            ['{{ datelist[2] }}', '{{ goal }}'],
+            ['{{ datelist[3] }}', '{{ goal }}'],
+            ['{{ datelist[4] }}', '{{ goal }}'],
+        ];
+
+        var avgWeightData = [
+            ['{{ datelist[0] }}', '{{ averageWeight }}'],
+            ['{{ datelist[1] }}', '{{ averageWeight }}'],
+            ['{{ datelist[2] }}', '{{ averageWeight }}'],
+            ['{{ datelist[3] }}', '{{ averageWeight }}'],
+            ['{{ datelist[4] }}', '{{ averageWeight }}'],
+        ];
+
+        var chart = anychart.column(); // create a chart on the canvas
+        var barSeries = chart.column(currentWeightData); // create a column series and use data from the var `currentWeightData` to display the bar chart
+        var lineSeries1 = chart.line(goalWeightData); // create a line series and use data from the var `goalWeightData` to display the line graph for the user goal weight
+        var lineSeries2 = chart.line(avgWeightData); // create a line series and use data from the var `avgWeightData` to display the line graph for the user avg weight
+        
+        lineSeries1.name("Your Weight Goal"); //name the first line graph
+        lineSeries1.stroke({ color: "green", thickness: 4 }); // set colour for the line graph
+        lineSeries2.name("Your Average Weight"); //name the second line graph
+        lineSeries2.stroke({ color: "red", thickness: 4 }); // set colour for the line graph
+
+        chart.title("Your weight trend for the past week"); // title of chart
+        chart.xAxis().title("Weight (KG)"); // set the title name for x-axis of the graph
+        chart.yAxis().title("Day"); // set the title name for x-axis of the graph
+
+        // FORMATTING THE SIZE OF THE CHART LABELS
+        var graph_title = chart.title();
+        var x_title = chart.xAxis().title();
+        var y_title = chart.yAxis().title();
+        var x_labels = chart.xAxis().labels();
+        var y_labels = chart.yAxis().labels();
+
+        // FORMATTING THE SIZE OF THE CHART LABELS
+        graph_title.fontSize(20);
+        x_title.fontSize(20);
+        y_title.fontSize(20);
+        y_labels.fontSize(20);
+        x_labels.fontSize(20);
+
+        chart.container("container"); // attach the graph canvas to the "container" id in the page
+        chart.draw(); // function to display the graph on the webpage
+    });
+</script>
+
+<div>
+    <br>
+    <br>
+    <table style="color: white">
+        <tr>
+            <td>
+                <h1>Your Average Weight: {{averageWeight}} Kg</h1>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h1>Your weight goal for this month: {{goal}} Kg</h1>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h1>Number of days left till end of month: {{daysLeft}} day(s)</h1>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% if "-" in weightToLosePerDay %}
+                <h1>This means, on average you have to gain: {{weightToLosePerDay[1:]}} Kg/day</h1>
+                {% else %}
+                <h1>This means, on average you have to lose: {{weightToLosePerDay}} Kg/day</h1>
+                {% endif %}
+            </td>
+        </tr>
+    </table>
+</div>
+{% endif %}
+
+{% endblock %}

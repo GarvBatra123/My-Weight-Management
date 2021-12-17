@@ -1,0 +1,82 @@
+/* STYLESHEET USED IN: */
+    /* 1. `template.html` */
+    /* 2. `createAcc-Pg1.html`*/
+    /* 3. `createAcc-Pg2.html` */
+    /* 4. `error_404.html` */
+    /* 5. `home.html` */
+    /* 6. `obtainGraphData.html` */
+    /* 7. `renderGraph.html */
+
+body{
+    margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #282A35;
+    color: #282A35
+}
+
+#navigation_bar{
+    position: -webkit-sticky; /*for safari*/
+    position: sticky; /* for non-safari browsers */
+    top:0;
+    z-index:1000; /*This allows for the navbar to be at the front*/
+}
+
+#navigation_bar ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    /* background-color: red; */
+    background-color:#FFFFFF;
+    overflow: hidden;
+}
+
+#navigation_bar #left{ /* SET "li" WITH "id=left" TO THE LEFT OF THE NAVBAR */
+    float: left;
+}
+
+#navigation_bar #left a{ /* SET "li" WITH "id=left" TO COLOR = #282a35 */
+    color: #282a35;
+    padding: 30px 16px;
+}
+
+#navigation_bar #right{ /* SET "li" WITH "id=right" TO THE RIGHT OF THE NAVBAR */
+    float: right;
+    margin: 9px;
+}
+
+#navigation_bar #right a{ /* SET "li" WITH "id=left" TO COLOR = white */
+    color: black !important;
+    padding:12px 40px !important;
+    background-color: #04AA6D;
+    border-radius: 50px;
+}
+
+#navigation_bar li a{ /* MAKE CHANGES TO THE LINKS IN THE NAVBAR TO MAKE IT MORE AESTHETIC */
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+#navigation_bar #left a:hover{ /* SET COLOR OF THE NAVBAR LINKS TO WHITE AND BACKGROUND TO GREEN ON MOUSE_HOVER FOR THE ELEMENTS WITH "id=left"*/
+    background-color: #04AA6D;
+    color: #ffffff;
+}
+
+#navigation_bar #right a:hover{
+    background-color: #059862;
+    color: white !important; 
+}
+
+#navigation_bar ul #active{ /* SET THE COLOUR OF THE ACTIVE PAGE TAB IN THE NAVGAR TO #013120 AND white TO TELL THE USER WHICH PAGE HE/SHE IS ON */
+    color: white !important;
+    background-color: #282A35
+}
+
+#navigation_bar ul #right #active:hover{ /* SET THE COLOUR OF THE ACTIVE PAGE TAB IN THE NAVGAR TO #013120 AND white TO TELL THE USER WHICH PAGE HE/SHE IS ON */
+    color: black !important;
+    /* background-color: #282A35 */
+}
+
+.fa{ /* DEFINE SIZE OF .fa ELEMENTS */
+    font-size: 35px;
+}

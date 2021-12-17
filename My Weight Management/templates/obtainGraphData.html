@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='obtainGraphData_formatting.css') }}">
+{% extends "template.html" %}
+
+<!-- TITLE -->
+{% block title %}
+Your Weight Trend
+{% endblock %}
+
+<!-- HEADER -->
+{% block WEIGHT_TREND_PAGE %}
+<li id="left"><a id= "active" href="{{url_for('obtainGraphData')}}">Weight trend</a></li>
+{% endblock %}
+
+{% block content_space %}
+
+<div id="container">
+    <form action="{{url_for('renderGraphData')}}" method="post">
+
+        <table style="text-align:center">
+            <tr>
+                <td><h2 style="color:black">ENTER THE DATE OF THE FIRST DAY OF THIS WEEK, THEN ENTER YOUR WEIGHT FOR EACH DAY OF THIS WEEK, FOLLOWED BY WHAT WEIGHT YOU WANT TO ACHIEVE BY THE END OF THIS MONTH</h2></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="weightDates" placeholder=" Enter start of week date (Monday) *" onfocus="(this.type='date')" onblur="(this.type='text')" required></td>
+            </tr>
+            <tr>
+                <td><input type="number" name="Day_1_weight" placeholder=" Enter weight for Monday *" step=".01" required></td>
+            </tr>
+            <tr>
+                <td><input type="number" name="Day_2_weight" placeholder=" Enter weight for Tuesday *" step=".01" required></td>
+            </tr>
+            <tr>
+                <td><input type="number" name="Day_3_weight" placeholder=" Enter weight for Wednesday *" step=".01" required></td>
+            </tr>
+            <tr>
+                <td><input type="number" name="Day_4_weight" placeholder=" Enter weight for Thursday *" step=".01" required></td>
+            </tr>
+            <tr>
+                <td><input type="number" name="Day_5_weight" placeholder=" Enter weight for Friday *"step=".01"  required></td>
+            </tr>
+        </table>
+        
+        <table style="text-align:center">
+            <tr>
+                <td><h2>NOW, ENTER WHAT WEIGHT YOU WANT TO ACHIEVE AT THE END OF 1 MONTH</h2></td>
+            </tr>
+            <tr>
+                <td><input type="number" name="goalWeight" placeholder=" Your weight goal by the end of this month *" required></td>
+            </tr>
+            <tr>
+                <td><input type="submit" id="submit"></td>
+            </tr>
+        </table>
+
+    </form>
+</div>
+{% endblock %}

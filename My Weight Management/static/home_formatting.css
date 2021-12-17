@@ -1,0 +1,112 @@
+#light_yellow{
+    background-color: #FFF4A3;
+}
+
+#light_green{
+    background-color: #D9EEE1;
+}
+
+.container{
+    /* margin: 20px; */ /*USED TO SET THE MARGINS AROUND EACH .container*/
+    position: relative;
+}
+
+.container div{
+    display: inline-block;
+    text-align: center;
+}
+
+#top_image{
+    text-align: center;
+    color: white;
+    background-image: linear-gradient(0deg, rgba(0,0,0,1), rgba(0,0,0,0.001)), url('/static/images/RANDOM_BACKGROUND.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat; /* PREVENTS THE IMAGE FROM REPEATING ITSELF */
+    padding-top: 30%;
+    padding-bottom: 20%;
+    background-attachment: fixed; /*PREVENTS THE IMAGE FROM SCROLLING: SCROLLING THE SCREEN HAS NO EFFECT ON THE BACKGROUND IMAGE*/
+    margin: 0px;
+}
+
+.container::after{ /* this prevents the background colour of the div from disappearing */
+    content: "";
+    clear: both;
+    display: table;
+}
+
+#align-left{
+    float:left;
+    width: 50%;
+}
+
+
+#align-left p, #align-left a{
+    margin-left: 15%;
+}
+
+#align-right{
+    float:right;
+    width: 50%;
+}
+
+#align-right p, #align-right a{
+    margin-right: 15%;
+}
+
+.text{
+    width: 50%;
+    /* background-color: red; */
+    overflow: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: none;
+}
+
+.text, .image{ /*aligns the image and the text together for consistency*/
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.text a{
+    background-color: #04AA6D;
+    border-radius: 30px;
+    align-items: center;
+    text-align:center; 
+    text-decoration: none;
+    padding: 14px 30px;
+    /* margin: auto 40%; */
+}
+
+.text a:hover{
+    background-color: #059862;
+    color: white;
+}
+
+@media screen and (max-width: 1080px) {
+    .container div{
+        display: block;
+        /* width: 50%; */
+    }
+
+    #align-left{
+        float:left;
+        width: 100%;
+    }
+
+    #align-left p, #align-left a{
+        margin-left: 0%;
+    }
+
+    #align-right{
+        float:left;
+        width: 100%;
+    }
+
+    #align-right p, #align-right a{
+        margin-right: 0%;
+    }
+
+    .text{
+        width: 100%;
+    }
+}

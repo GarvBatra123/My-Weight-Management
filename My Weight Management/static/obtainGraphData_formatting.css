@@ -1,0 +1,81 @@
+/* STYLE SHEET USED IN: */
+    /* 1. `obtainGraphData.html` */
+
+#container{
+    background-image: linear-gradient(0deg, rgba(0,0,0,1), rgba(0,0,0,0.001)), url('/static/images/RANDOM_BACKGROUND.jpg');
+    background-size: cover;
+    background-repeat: no-repeat; /* PREVENTS THE IMAGE FROM REPEATING ITSELF */
+    color: white;
+    background-attachment: fixed;
+    text-align: center;
+    display: block;
+    position: relative;
+    width: 100%;
+}
+
+#login_info{
+    background-image: linear-gradient(0deg, rgba(0,0,0,1), rgba(0,0,0,0.001)), url('/static/images/RANDOM_BACKGROUND.jpg');
+    background-size: cover;
+    background-repeat: no-repeat; /* PREVENTS THE IMAGE FROM REPEATING ITSELF */
+    color: white;
+    background-attachment: fixed;
+    text-align: center;
+    display: block;
+    position: relative;
+    width: 100%;
+}
+
+h1{
+    text-align: center;
+    padding-top: 2%;
+    /* padding-bottom: 38%; */
+    font-size: 70px;
+    margin: 0px;
+}
+
+form{
+    padding-bottom: 22%;
+}
+
+td{
+    font-size: 20px;
+}
+
+input{
+    line-height: 40px;
+    font-size: 20px;
+    border-radius: 5px;
+    width: 400px;
+}
+
+table{
+    margin: 0 auto;
+    border-spacing: 20px;
+}
+
+#submit{
+    background-color: #04AA6D;
+    border-radius: 30px;
+    border: none;
+}
+
+#submit:hover{
+    background-color: #059862;
+}
+
+.show, .hide{
+    color: white !important;
+    font-size: 20px !important;
+    position: absolute;
+    margin-top: 0.9%;
+    margin-left: 0.4%;
+}
+
+#nonEdit{
+    background-color: grey;
+    color: white;
+}
+
+h2{
+    color: white;
+}

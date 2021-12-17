@@ -1,0 +1,53 @@
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='template_formatting.css') }}">
+        <link rel='stylesheet' href="{{ url_for('static', filename='font-awesome/css/all.css')}}">
+        <title>{% block title %} Default title {% endblock %}</title>
+    </head>
+
+    <body>
+        {% block navbar %}
+        <div id="navigation_bar">
+            <ul>
+                {% block HOME_PAGE %}
+                <li id="left"><a href="/home">Home</a></li>
+                {% endblock %}
+                <!-- this allows for the navigation element of the active page to be highlighted, telling the user which page he/she is on  -->
+
+                {% block WEIGHT_TREND_PAGE %}
+                <li id="left"><a href="{{url_for('obtainGraphData')}}">Weight trend</a></li>
+                {% endblock %}
+                <!-- this allows for the navigation element of the active page to be highlighted, telling the user which page he/she is on  -->
+
+                {% block LOGIN_PAGE %}
+                <li id="right"><a href="{{url_for('loginPage1')}}" class="fa fa-fingerprint"></a></li>
+                {% endblock %}
+                <!-- this allows for the navigation element of the active page to be highlighted, telling the user which page he/she is on  -->
+
+                {% if os.path.exists('userData.json') %}
+                    {% block PROFILE_PAGE %}                
+                    <li id="right"><a href="{{url_for('profile_Page')}}" class="fa fa-id-card"></a></li>
+                    {% endblock %}
+                {% endif %}
+            </ul>
+        </div>
+        {% endblock %}
+
+        {% block content_space %}
+        <div>
+            {% block heading %}
+            <h1>THIS IS THE DEFAULT HEADING</h1>
+            {% endblock %}
+
+            {% block text %}
+            <p>THIS IS THE DEFAULT CONTENT</p>
+            {% endblock %}
+        </div>
+        {% endblock %}
+
+        <div id="footer">
+
+        </div>
+    </body>
+
+</html>

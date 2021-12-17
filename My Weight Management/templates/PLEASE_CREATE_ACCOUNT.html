@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='PLEASE_CREATE_ACCOUNT_formatting.css') }}">
+{% extends "template.html" %}
+
+<!-- TITLE -->
+{% block title %}
+Create Profile
+{% endblock %}
+
+<!-- NAVBAR -->
+{% block PROFILE_PAGE %}
+<li id="right"><a id="active" href="{{url_for('profile_Page')}}" class="fa fa-id-card"></a></li>
+{% endblock %}
+
+{% block content_space %}
+
+<h2>
+    Looks like you have not created an account yet...
+    <br>
+</h2>
+<h3>
+    CLICK <a href="{{url_for('loginPage1')}}">HERE</a> TO CREATE AN ACCOUNT
+</h3>
+{% endblock %}

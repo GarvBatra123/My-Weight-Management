@@ -1,0 +1,14 @@
+/* STYLESHEET USED IN: */
+    /* 1. profilePage.html */
+.userIcon{
+    text-align: center;
+    color: white;
+}
+
+#avatar{
+    padding: 25px;
+    font-size: 100px;
+    margin-bottom: 0%;
+    background-color: #059862;
+    border-radius: 90px;
+}

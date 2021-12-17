@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='error_404.css') }}">
+{% extends "template.html" %}
+
+<!-- TITLE -->
+{% block title %}
+ERROR 404!
+{% endblock %}
+
+<!-- NAVBAR -->
+{% block navbar %}
+{% endblock %}
+
+{% block content_space %}
+
+<h1>
+    404
+    <br>
+    Er..
+</h1>
+<h2>
+    CONGRATS! YOU BROKE THE INTERNET....
+</h2>
+<h3>
+    LET'S REDIRECT YOU BACK TO THE <a href="/home">HOMEPAGE</a>
+</h3>
+{% endblock %}

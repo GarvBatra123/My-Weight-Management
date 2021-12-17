@@ -1,0 +1,62 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='createAcc_formatting.css') }}">
+{% extends "template.html" %}
+
+<!-- TITLE -->
+{% block title %}
+Login
+{% endblock %}
+
+<!-- NAV BAR ELEMENTS -->
+{% block LOGIN_PAGE %}
+<!-- <li id="right"><a id="active" href="" class="fa fa-address-card"></a></li> -->
+<li id="right"><a id="active" href="" class="fa fa-fingerprint"></a></li>
+{% endblock %}
+
+{% block content_space %}
+<div id="login_info">
+
+    <h1>Create Account</h1>
+
+    <form action="{{url_for('profile_Page')}}" method="post">
+        <table style="text-align: center">
+            <tr>
+                <td><h2>PLEASE CONFIRM THAT YOUR LOGIN-DETAILS BELOW ARE CORRECT. IF NOT, CLICK <a href="javascript:history.back()">HERE</a></h2></td> 
+                <!-- THIS IS JAVASCRIPT FUNCTION ALLOWS THE USER TO GO BACK TO THE PREVIOUS CREATE ACCOUNT PAGE -->
+            </tr>
+            <tr>
+                <td><input id="nonEdit" type="text" value='Full Name: {{values[keys.index("First-Name")]}} {{values[keys.index("Last-Name")]}}' readonly="readonly"></td>
+            </tr>
+            <tr>
+                <td><input id="nonEdit" type="text" value='Username: {{values[keys.index("Username")]}}' readonly="readonly"></td>
+            </tr>
+            <tr>
+                <td><input id="nonEdit" type="text" value='Email address: {{values[keys.index("Email")]}}' readonly="readonly"></td>
+            </tr>
+            <td><h2 style="color: white">PLEASE ENTER MISCELLANEOUS INFORMATION ABOUT YOURSELF BELOW:</h2></td>
+            <tr>
+                <td><input type="number" name="Age" placeholder=" Age"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="Date_Of_Birth" placeholder=" Date Of Birth" onfocus="(this.type='date')" onblur="(this.type='text')"></td>
+            </tr>
+            <tr>
+                <td>
+                    <select name="gender">
+                        <option value="none" selected>Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                        <option value="preferNotToSay">Prefer Not To Say</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" id="submit"></td>
+            </tr>
+        </table>
+    </form>
+
+
+
+</div>
+{% endblock %}
